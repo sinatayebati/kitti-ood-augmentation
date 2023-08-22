@@ -1,22 +1,45 @@
-## Automold
+## Kitti OoD Augmentation
 
-**There are various types of image augmentations done to increase the image corpus for training neural networks. However for training CNNs to drive some special road conditions are required. These can be random gravels of the road or maybe snow. Rain and fog also reduce the visibility to a great extent. Automold helps in addressing these challenges and augments road images to have various weather and road conditions.**
+Welcome to the "OpenCV Image Augmentation for Out-of-Distribution (OOD) Datasets" repository! 📷✨
 
-### Importing road augmentation library Automold and helper functions library
+This repository hosts a model designed to enhance the diversity and realism of your Out-of-Distribution (OOD) image datasets, with a focus on the popular KITTI dataset and beyond. Leveraging the power of OpenCV, our augmentation model introduces a wide range of captivating effects that breathe life into your data, making it more robust and representative of real-world scenarios.
+
+With a plethora of augmentation techniques such as brightness adjustments, darkness overlays, shadow simulations, snow and rain overlays, fog diffusion, random gravel additions, sun flare introductions, blur applications, autumn hues, and much more, this model empowers you to effortlessly introduce a spectrum of visual transformations to your dataset.
+
+Whether you're training machine learning models for autonomous driving, object detection, or any computer vision task, diverse and realistic data is key to their success. This approach, rooted in OpenCV, ensures that your OOD dataset becomes an invaluable asset in pushing the boundaries of your projects.
+
+Explore, augment, and elevate your dataset with the "OpenCV Image Augmentation for Out-of-Distribution Datasets" repository. 🌟🚗🌦️
+
+### requirements
 
 ```python
-import Automold as am
-import Helpers as hp
+python == 3.10.12
+numpy == 1.25.2
+opencv == 4.8.0
+matplotlib == 3.7.2
 ```
 
-#### Let's load up some images first
+### setup environment
+Clone the repository in your local machine, and create your conda environement:
+
+```
+conda create -n oodenv python=3.10
+conda activate oodenv
+conda install numpy
+conda install -c conda-forge opencv
+conda install matplotlib
+
+```
+
+### test notebook
+open 'test-notebook.ipynb' and follow the steps:
 
 ```python
 path='./test_augmentation/*.jpg'
 images= hp.load_images(path)
 ```
 
-#### visualize function helps in displaying images easily without requiring you to write the whole code.
+#### visualize function helps in displaying images easily
 
 ```python
 hp.visualize(images, column=3, fig_size=(20,10))
@@ -24,9 +47,10 @@ hp.visualize(images, column=3, fig_size=(20,10))
 
 ![png](./README_Images/output_5_0.png)
 
-#### Checking out the brighten function
 
-### brighten
+### OoD type #1: brightness
+
+### function: brighten
 
 **parameters**
 
@@ -49,9 +73,11 @@ hp.visualize(bright_images, column=3)
 
 ![png](./README_Images/output_8_0.png)
 
-#### Let's darken a few images now
 
-### darken
+
+### OoD type #2: darkness
+
+### function: darken
 
 **parameters**
 
@@ -73,9 +99,10 @@ hp.visualize(dark_images, column=3)
 
 ![png](./README_Images/output_11_0.png)
 
-#### But what if you just want some random brightness or darkness in the images. Well try out the random_brightness function which receives an image or an image array
 
-### random_brightness
+### OoD type #3: random brightness
+
+### function: random_brightness
 
 **parameters**
 
@@ -89,9 +116,9 @@ hp.visualize(dark_bright_images, column=3)
 
 ![png](./README_Images/output_13_0.png)
 
-#### What about adding some shadows to the images.
+### OoD type #4: shadow
 
-### add_shadow
+### function: add_shadow
 
 **Parameters**
 
@@ -118,9 +145,9 @@ hp.visualize(shadowy_images, column=3)
 
 ![png](./README_Images/output_17_0.png)
 
-#### Now let's add some snow
+### OoD type #5: snow
 
-### add_snow
+### function: add_snow
 
 **parameters**
 
@@ -149,9 +176,10 @@ hp.visualize(snowy_images, column=3)
 
 ![png](./README_Images/output_22_0.png)
 
-#### and now some rain
 
-### add_rain
+### OoD type #6: rain
+
+### function: add_rain
 
 **parameters**
 
@@ -190,7 +218,9 @@ hp.visualize(rainy_images, column=3)
 
 **Note:** drop_length and drop_width values are overriden when rain_type is not None
 
-### add_fog
+### OoD type #7: fog
+
+### function: add_fog
 
 **parameters**
 
@@ -219,9 +249,9 @@ hp.visualize(foggy_images, column=3)
 
 ![png](./README_Images/output_32_0.png)
 
-#### what about some gravels on the road now ?
+### OoD type #8: gravel
 
-### add_gravel
+### function: add_gravel
 
 **parameters**
 
@@ -245,7 +275,10 @@ hp.visualize(bad_road_images, column=3)
 
 ![png](./README_Images/output_36_0.png)
 
-### add_sun_flare
+
+### OoD type #9: sun flare
+
+### function: add_sun_flare
 
 **parameters**
 
@@ -276,7 +309,10 @@ hp.visualize(flare_images, column=3)
 
 ![png](./README_Images/output_39_0.png)
 
-### add_speed
+
+### OoD type #10: speed/blur
+
+### function: add_speed
 
 **parameters**
 
@@ -298,7 +334,10 @@ hp.visualize(speedy_images, column=3)
 
 ![png](./README_Images/output_42_0.png)
 
-### add_autumn
+
+### OoD type #11: autumn effect
+
+### function: add_autumn
 
 **parameters**
 
@@ -311,7 +350,10 @@ hp.visualize(fall_images, column=3)
 
 ![png](./README_Images/output_44_0.png)
 
-### fliph
+
+### OoD type #12: flip horizontal
+
+### function: fliph
 
 **parameters**
 
@@ -324,7 +366,10 @@ hp.visualize(flipped_images, column=3)
 
 ![png](./README_Images/fliph.png)
 
-### flipv
+
+### OoD type #13: flip vertical
+
+### function: flipv
 
 **parameters**
 
@@ -337,7 +382,9 @@ hp.visualize(flipped_images, column=3)
 
 ![png](./README_Images/flipv.png)
 
-### random_flip
+### OoD type #14: random flip
+
+### function: random_flip
 
 **parameters**
 
@@ -350,7 +397,10 @@ hp.visualize(flipped_images, column=3)
 
 ![png](./README_Images/random_flip.png)
 
-### add_manhole
+
+### OoD type #15: hole
+
+### function: add_manhole
 
 **parameters**
 
@@ -373,7 +423,10 @@ hp.visualize(manhole_images, column=3)
 
 ![png](./README_Images/manhole.png)
 
-### correct_exposure
+
+### OoD type #16: correct_exposure
+
+### function: correct_exposure
 
 **parameters**
 
@@ -386,7 +439,10 @@ hp.visualize(exposure_images, column=3)
 
 #### If a series of augmentations is required from above types augment_random function can be handy
 
-### augment_random
+
+### OoD type #17: random augmentation
+
+### function: augment_random
 
 **image:** image or image list
 
@@ -426,72 +482,8 @@ hp.visualize(aug_images,column=3,fig_size=(20,10))
 
 ![png](./README_Images/output_50_0.png)
 
-#### Performance statistics
-
-```python
-aug_types=["random_brightness","add_shadow","add_snow","add_rain","add_fog","add_gravel","add_sun_flare","add_speed","add_autumn","random_flip","add_manhole"]
-dict_time={}
-import time
-for aug_type in aug_types:
-    t=time.time()
-    command='am.'+aug_type+'(images)'
-    result=eval(command)
-    dict_time[aug_type]=time.time()-t
-    t=time.time()
-print('Average Time taken per augmentaion function to process 1 image:')
-tot=0
-for key, value in dict_time.items():
-    tot+=value
-    print(key, '{0:.2f}s'.format(value/len(images)))
-
-print('-----------------------')
-print('Total no. of augmented images created:', len(aug_types)*len(images))
-print('-----------------------')
-print('Total time taken to create ',len(aug_types)*len(images),' augmented images:', '{0:.2f}s'.format(tot))
-```
-
-            Average Time taken per augmentaion function to process 1 image:
-            add_rain 0.02s
-            add_sun_flare 0.09s
-            add_fog 0.37s
-            add_speed 0.20s
-            random_brightness 0.05s
-            add_shadow 0.01s
-            random_flip 0.00s
-            add_manhole 0.01s
-            add_autumn 0.31s
-            add_gravel 0.04s
-            add_snow 0.06s
-            -----------------------
-            Total no. of augmented images created: 99
-            -----------------------
-            Total time taken to create  99  augmented images: 10.42s
 
 **Note:** The load_images helper function resizes all images to 1280x720 and thus all returned images have the same dimensions. If original image dimensions are required please write a new load function
 
-Some more helpful functions are in pipeline and will get added to the library asap.
-Thanx
-
----
-
-MIT License
-
-Copyright (c) 2018 Ujjwal Saxena
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## license
+MIT
