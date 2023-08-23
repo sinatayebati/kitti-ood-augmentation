@@ -30,9 +30,16 @@ conda install -c conda-forge opencv
 conda install matplotlib
 
 ```
+### automatic image processing
+open the "create.py", set the correct "input_path" and "output_path" in the python script, and then run in terminal:
+
+```
+python create.py
+```
+
 
 ### test notebook
-open 'test-notebook.ipynb' and follow the steps:
+In case you want an interactive environment to process and visualize images, open 'test-notebook.ipynb' and follow the steps:
 
 ```python
 path='./test_augmentation/*.jpg'

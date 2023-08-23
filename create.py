@@ -5,9 +5,23 @@ import helper as hp
 
 # Define the available augmentation functions
 available_augmentation_functions = {
-    "brighten"  : am.brighten,
-    "darken"    : am.darken,
-    "add shadow": am.add_shadow,
+    "brighten"           : am.brighten,
+    "darken"             : am.darken,
+    "random brightness"  : am.random_brightness,
+    "shadow"             : am.add_shadow,
+    "snow"               : am.add_snow,
+    "rain"               : am.add_rain,
+    "blur"               : am.add_blur,
+    "fog"                : am.add_fog,
+    "gravel"             : am.add_gravel,
+    "sun flare"          : am.add_sun_flare,
+    "speed"              : am.add_speed,
+    "autumn"             : am.add_autumn,
+    "flip horizontal"    : am.fliph,
+    "flip vertical"      : am.flipv,
+    "random flip"        : am.random_flip,
+    "manhole"            : am.add_manhole,
+    "random augment"     : am.augment_random,
     # Add more functions here
 }
 

@@ -668,10 +668,6 @@ def add_speed(image, speed_coeff=-1):
 
     return image_RGB
 
-
-# In[159]:
-
-
 def autumn_process(image):
     image_t=image.copy()
     imshape=image_t.shape
