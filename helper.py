@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 import math
+from PIL import Image
 
 
 
@@ -95,3 +96,15 @@ def load_images(path):
 
 
 
+def save_image(image, file_path):
+    """
+    Save an image to the specified file path.
+
+    :param image: Numpy array representing the image.
+    :param file_path: Path to save the image.
+    """
+    if not is_numpy_array(image):
+        raise Exception(err_not_np_img)
+
+    pil_image = Image.fromarray(image)
+    pil_image.save(file_path)
