@@ -29,7 +29,7 @@ def process_images(input_path, output_path, augmentation_function):
     # Create the output directory if it doesn't exist
     os.makedirs(output_path, exist_ok=True)
 
-    images = hp.load_images(input_path)
+    images = hp.load_images(input_path)[:1000]
     processed_images = augmentation_function(images)
 
     # Save the processed images in the output directory
@@ -38,8 +38,8 @@ def process_images(input_path, output_path, augmentation_function):
         hp.save_image(image, output_file_path)
 
 if __name__ == "__main__":
-    input_path = 'test_augmentation/input/*.jpg'
-    output_path = 'test_augmentation/output'
+    input_path = 'kitti_img/image_2/*.png'
+    output_path = 'kitti_img/output'
 
     print("Available augmentation functions:")
     for func_name in available_augmentation_functions:
